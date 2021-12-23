@@ -1,15 +1,10 @@
 import { observer } from 'mobx-react';
 import React from 'react'
-import { Navbar, Nav, Container, Image, Button, Col, Row, Stack , Form} from 'react-bootstrap'
-import { useTranslation } from 'react-i18next';
-import { useInjection } from '../../ioc/ioc.react';
-import ownTypes from '../../ioc/ownTypes';
-import AuthStore from '../../stores/AuthStore';
+import { Navbar, Nav, Container, Image, Button} from 'react-bootstrap'
 import { useNavigate } from "react-router-dom";
 
+
 const Header = observer(() => {
-  const { t } = useTranslation(['header']);
-  const store = useInjection<AuthStore>(ownTypes.authStore);
   const navigate = useNavigate();
 
   return (
@@ -17,7 +12,7 @@ const Header = observer(() => {
     <>
   <Navbar bg="dark" variant="dark">
     <Container>
-    <Navbar.Brand href="/">BookStore</Navbar.Brand>
+    <Navbar.Brand href="/users?page=1">BookStore</Navbar.Brand>
 
     <Nav className="me-auto">
       <Nav.Link href="/users?page=1">Главная</Nav.Link>
@@ -25,9 +20,9 @@ const Header = observer(() => {
       <Nav.Link href="/">Новости</Nav.Link>
 
     </Nav>
-
-    <Button variant="outline-light" className="d-flex justify-content-en ms-1">Войти</Button>{' '}
-    <Button variant="outline-light" className="mx-6">Зарегистрироваться</Button>{' '}
+<Button variant="light"><Image src="https://cdn-icons-png.flaticon.com/512/263/263142.png" onClick={() => navigate(`/login`)}  width="20" height="20" rounded /></Button>
+    <Button variant="outline-light" className="d-flex justify-content-en ms-1" onClick={() => navigate(`/login`)}>Войти </Button>{' '}
+    <Button variant="outline-light" className="mx-6" onClick={() => navigate(`/login`)}>Зарегистрироваться</Button>{' '}
 
     </Container>
   </Navbar>

@@ -19,19 +19,18 @@ const UserCard = observer((props: Props) => {
   if (!props.user) {
     return null
   }
-  const { id, email, first_name, last_name, avatar } = props.user
+  const { id } = props.user
 
   return (
      <Row>
     <Card style={{ width: '25rem',  }}>
-  <Card.Img variant="top" src="https://s4.thingpic.com/images/jT/BMUCPtpXe6uPpKEhUdw5pETt.png" width="40" height="170" />
+  <Card.Img variant="top" src="https://storage.googleapis.com/multi-static-content/previews/artage-io-thumb-f14edf2c5828768997ebd57d41c9ec37.png" width="40" height="170" onClick={() => navigate(`/profile/${id}`)} />
   <Card.Body>
     <Card.Title>Book Title</Card.Title><Card.Title>Price $</Card.Title>
     <Card.Text>
-      Some quick example text to build on the card title and make up the bulk of
-      the card's content.
+      Some quick example text to build on the card title and make up the bulk of the cards content.
     </Card.Text>
-    <Button variant="primary">Add to cart</Button>
+    <Button variant="outline-primary" onClick={() => navigate(`/login`)}>Add to cart</Button>{' '}
   </Card.Body>
 </Card>
 </Row>

@@ -1,7 +1,7 @@
 {
     "tabs": {
-      "user": "User",
-      "users": "Users list",
+      "user": "Book",
+      "users": "Books list",
       "login": "Login"
     }
 }
