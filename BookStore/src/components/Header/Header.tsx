@@ -1,6 +1,6 @@
 import { observer } from 'mobx-react';
 import React from 'react'
-import { Navbar, Nav, Container, Image, Button } from 'react-bootstrap'
+import { Navbar, Nav, Container, Image, Button, Col, Row, Stack , Form} from 'react-bootstrap'
 import { useTranslation } from 'react-i18next';
 import { useInjection } from '../../ioc/ioc.react';
 import ownTypes from '../../ioc/ownTypes';
@@ -24,10 +24,11 @@ const Header = observer(() => {
       <Nav.Link href="/">Контакты</Nav.Link>
       <Nav.Link href="/">Новости</Nav.Link>
 
-      <Button variant="outline-light" className="d-flex justify-content-en">Войти</Button>{' '}
-      <Button variant="outline-light" className="mx-auto">Зарегистрироваться</Button>{' '}
-
     </Nav>
+
+    <Button variant="outline-light" className="d-flex justify-content-en ms-1">Войти</Button>{' '}
+    <Button variant="outline-light" className="mx-6">Зарегистрироваться</Button>{' '}
+
     </Container>
   </Navbar>
   <br />

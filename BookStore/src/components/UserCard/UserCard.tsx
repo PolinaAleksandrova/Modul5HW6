@@ -1,6 +1,6 @@
 import { observer } from 'mobx-react';
 import React from 'react'
-import { Card } from 'react-bootstrap'
+import { Card, Button, Row } from 'react-bootstrap'
 import { useNavigate } from "react-router-dom";
 
 interface Props {
@@ -15,22 +15,26 @@ interface Props {
 
 const UserCard = observer((props: Props) => {
   const navigate = useNavigate();
-  
+
   if (!props.user) {
     return null
   }
   const { id, email, first_name, last_name, avatar } = props.user
 
   return (
-    <Card>
-      <Card.Img variant="top" src={avatar} onClick={() => navigate(`/profile/${id}`)} />
-      <Card.Body>
-        <Card.Title>{email}</Card.Title>
-        <Card.Text>
-          {first_name} {last_name}
-        </Card.Text>
-      </Card.Body>
-    </Card>
+     <Row>
+    <Card style={{ width: '25rem',  }}>
+  <Card.Img variant="top" src="https://s4.thingpic.com/images/jT/BMUCPtpXe6uPpKEhUdw5pETt.png" width="40" height="170" />
+  <Card.Body>
+    <Card.Title>Book Title</Card.Title><Card.Title>Price $</Card.Title>
+    <Card.Text>
+      Some quick example text to build on the card title and make up the bulk of
+      the card's content.
+    </Card.Text>
+    <Button variant="primary">Add to cart</Button>
+  </Card.Body>
+</Card>
+</Row>
   )
 });
 
