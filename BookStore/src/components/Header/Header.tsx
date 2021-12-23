@@ -14,24 +14,25 @@ const Header = observer(() => {
 
   return (
     <Container fluid style={{ paddingLeft: 0, paddingRight: 0 }}>
-      <Navbar bg="dark" variant="dark">
-          <Container>
-            <Navbar.Brand onClick={() => navigate('/')}>
-              <Image src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-gear-128.png"   width="30" height="30" rounded />
-            </Navbar.Brand>
-            <Nav className="me-auto">
-              <Button variant="dark" className='mx-2' onClick={() => navigate('/')}>{t('home')}</Button>
-              {store.isAuthorized && <Button variant="dark" className='mx-2'  onClick={() => navigate('/profile/me')}>{t('profile')}</Button> }
-              <Button variant="dark" className='mx-2'  onClick={() => navigate('/users?page=1')}>{t('users')}</Button>
-            </Nav>
-            <Nav>
-               {store.isAuthorized && <Button onClick={()=> {
-                  store.logout();
-                  navigate('/', { replace: true});
-                }}  >{t('logout')}</Button> }
-            </Nav>
-          </Container>
-        </Navbar>
+    <>
+  <Navbar bg="dark" variant="dark">
+    <Container>
+    <Navbar.Brand href="/">BookStore</Navbar.Brand>
+
+    <Nav className="me-auto">
+      <Nav.Link href="/users?page=1">Главная</Nav.Link>
+      <Nav.Link href="/">Контакты</Nav.Link>
+      <Nav.Link href="/">Новости</Nav.Link>
+
+      <Button variant="outline-light" className="d-flex justify-content-en">Войти</Button>{' '}
+      <Button variant="outline-light" className="mx-auto">Зарегистрироваться</Button>{' '}
+
+    </Nav>
+    </Container>
+  </Navbar>
+  <br />
+
+</>
     </Container>
   )
 });
